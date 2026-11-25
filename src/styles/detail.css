@@ -1,0 +1,28 @@
+.detail { position: fixed; inset: 0; z-index: 120; overflow: hidden; }
+.detail[hidden] { display: none; }
+.d-panel { position: absolute; inset: 0; background: var(--ink-2); transform-origin: 0 0; will-change: transform; border-top: 1px solid var(--line); }
+.d-body {
+  position: absolute; inset: 0; overflow-y: auto; overscroll-behavior: contain;
+  padding: calc(var(--pad) * 3) var(--pad) var(--pad);
+}
+.d-close {
+  position: fixed; right: var(--pad); top: calc(var(--pad) * 0.7); z-index: 2;
+  font: 500 11px/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 11px 16px; border: 1px solid #55565a; border-radius: 999px; background: var(--ink-2);
+  transition: background 0.3s, color 0.3s;
+}
+.d-close:hover { background: var(--lime); color: #0b0c00; border-color: var(--lime); }
+.d-num { font-weight: 800; font-size: clamp(110px, 24vw, 420px); letter-spacing: -0.09em; line-height: 0.75; color: transparent; -webkit-text-stroke: 1px #4a4b4f; margin-bottom: clamp(20px, 4vw, 60px); }
+.d-main { display: grid; grid-template-columns: 1fr 1.1fr; gap: var(--pad); align-items: start; }
+.d-copy h2 { font-size: clamp(36px, 5.4vw, 88px); line-height: 0.92; margin: 12px 0 18px; }
+.d-desc { color: #c9c8c3; font-size: clamp(16px, 1.4vw, 20px); max-width: 34em; }
+.d-points { margin-top: 22px; border-top: 1px solid var(--line); }
+.d-points li { padding: 10px 0; border-bottom: 1px solid var(--line); font: 400 13px/1.4 var(--mono); color: #cfcec8; }
+.d-points li::before { content: '→ '; color: var(--lime); }
+.d-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.d-tags li { font: 400 11px/1 var(--mono); text-transform: uppercase; letter-spacing: 0.06em; padding: 7px 10px; border: 1px solid #3a3c40; border-radius: 999px; color: var(--muted); }
+.d-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+.d-vis { position: relative; aspect-ratio: 16 / 11; background: #0a0b0d; border: 1px solid var(--line); overflow: hidden; }
+.d-vis canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+@media (max-width: 860px) { .d-main { grid-template-columns: 1fr; } .d-vis { order: -1; } }

@@ -1,0 +1,69 @@
+/* Pinned phone + blueprint scene */
+.stage { position: relative; height: 760vh; background: var(--ink); }
+.reduced .stage { height: 230svh; }
+.pin { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
+.paper { position: absolute; inset: 0; background: var(--paper); opacity: 0; }
+.scene { position: absolute; inset: 0; }
+.scene canvas { width: 100%; height: 100%; }
+
+.phone-intro, .bp-head {
+  position: absolute; left: var(--pad); top: calc(var(--pad) * 3.2); max-width: min(28rem, 44vw); z-index: 2;
+}
+.phone-intro h2, .bp-head h2 { font-size: clamp(44px, 6.4vw, 104px); line-height: 0.88; letter-spacing: -0.06em; margin: 12px 0 14px; }
+.phone-intro p:last-child { color: #b9b8b2; font-size: 15px; }
+.bp-head { opacity: 0; color: var(--paper-ink); }
+.bp-head .label { color: var(--paper-mute); }
+.bp-head p:last-child { color: var(--paper-mute); font-size: 15px; line-height: 1.45; max-width: 24em; }
+
+.step { position: absolute; left: var(--pad); bottom: var(--pad); z-index: 3; }
+.pin.is-paper .step { color: var(--paper-mute); }
+
+/* labels */
+.tags { position: absolute; z-index: 3; display: flex; flex-direction: column; gap: 10px; }
+.tags-left { left: var(--pad); top: 50%; width: min(17rem, 24vw); }
+.tags-right { right: var(--pad); top: 24%; width: min(17rem, 24vw); gap: clamp(46px, 13svh, 130px); align-items: flex-end; }
+.tag {
+  display: inline-flex; align-items: baseline; gap: 10px; text-align: left; max-width: 100%;
+  font: 500 11px/1.35 var(--mono); letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--paper-ink); padding: 8px 12px; border: 1px solid rgba(42, 42, 40, 0.55); background: rgba(233, 230, 223, 0.85);
+  transition: background 0.25s, border-color 0.25s;
+}
+.tag .k { color: var(--paper-mute); }
+.tag:hover, .tag:focus-visible, .tag.on { background: var(--lime); border-color: var(--paper-ink); outline-offset: 3px; }
+.tag:focus-visible { outline-color: var(--paper-ink); }
+
+.lines { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 2; pointer-events: none; overflow: visible; }
+.lines path { fill: none; stroke: var(--paper-ink); stroke-width: 1; vector-effect: non-scaling-stroke; opacity: 0.75; }
+.lines circle { fill: var(--paper-ink); }
+.lines .hot path, .lines path.hot { stroke-width: 1.6; opacity: 1; }
+
+/* scrubber */
+.scrub {
+  position: absolute; right: var(--pad); bottom: var(--pad); z-index: 4; width: min(300px, 62vw); height: 44px;
+  border-radius: 999px; background: rgba(14, 15, 17, 0.9); border: 1px solid #2f3237; padding: 0 18px;
+  touch-action: none; user-select: none; -webkit-user-select: none;
+}
+.scrub .ticks { height: 100%; display: flex; justify-content: space-between; align-items: center; }
+.tk { width: 1px; height: 10px; background: #54565b; flex: none; }
+.tk.big { height: 18px; }
+.tk.on { background: var(--text); }
+.ph { position: absolute; left: 0; top: 7px; bottom: 7px; width: 2px; border-radius: 2px; background: var(--lime); box-shadow: 0 0 10px rgba(200, 255, 61, 0.7); will-change: transform; }
+
+@media (max-width: 760px) {
+  .stage { height: 640vh; }
+  .scene { inset: 0 0 150px 0; }
+  .phone-intro, .bp-head { top: calc(var(--pad) * 3.4); max-width: 80vw; }
+  .phone-intro h2, .bp-head h2 { font-size: clamp(38px, 12vw, 60px); }
+  .bp-head p:last-child { display: none; }
+  .tags { flex-direction: row; flex-wrap: wrap; left: var(--pad); right: var(--pad); top: auto; width: auto; gap: 6px; align-items: flex-start; }
+  .tags-left { bottom: 126px; }
+  .tags-right { bottom: 84px; gap: 6px; }
+  .tag { font-size: 9.5px; padding: 6px 9px; }
+  .tag .k { display: none; }
+  .lines { display: none; }
+  .step { bottom: calc(var(--pad) + 14px); }
+}
+
+/* WebGL unavailable: hide the canvas, keep labels and text readable */
+.pin.no-gl .scene { display: none; }
+.pin.no-gl .paper { opacity: 1; }
