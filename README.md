@@ -1,31 +1,32 @@
-# Vibhav — portfolio
+# React + TypeScript + Vite
 
-Vite + vanilla JS · animejs v4 (4.0.2) · three.js (0.170.0) · Lenis · @fontsource (Bricolage Grotesque, JetBrains Mono).
+This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+
+## React Compiler
+
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+
+## Expanding the Oxlint configuration
+
+If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+
+```json
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["react", "typescript", "oxc"],
+  "options": {
+    "typeAware": true
+  },
+  "rules": {
+    "react/rules-of-hooks": "error",
+    "react/only-export-components": ["warn", { "allowConstantExport": true }]
+  }
+}
 ```
-npm install
-npm run dev        # http://localhost:5173
-npm run build      # → dist/
-```
 
-## Where to edit things
-- `src/data/site.js` — email, GitHub, social, hero subtitle, bio, facts, terminal lines
-- `src/data/projects.js` — project cards + detail view
-- `src/scenes/phoneSpec.js` — blueprint label text/sides, timeline length
-- `src/styles/tokens.css` — colours and fonts
-
-## Structure
-```
-src/
-  animations/  anime.js (v4 imports + createDrawable shim) · scroll.js (Lenis) · cursor.js · split.js · reveal.js · thumbs.js
-  scenes/      signalCore.js (hero SVG) · phoneModel.js (pivots/parts) · phoneScene.js (renderer) · phoneSpec.js
-  sections/    intro · nav · hero · phone (master timeline) · blueprint (labels + leader lines) · scrubber · work · detail · lab · about
-  data/        site.js · projects.js
-  styles/      tokens · base · hero · stage · work · lab · about · detail
-```
-
-## Notes
-- three.js loads lazily (own chunk) when the phone section is within ~900px of the viewport; rendering pauses off-screen.
-- One master `createTimeline` is seeked from scroll progress, so reversing is exact. The scrubber moves the page scroll.
-- `prefers-reduced-motion`: Lenis off, loops off, the opening becomes a crossfade between closed and blueprint states.
-- Tune the look of the 3D scene in `phoneScene.js` (light intensities) and `phoneModel.js` (part colours, sizes, hinge angles).
+See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.

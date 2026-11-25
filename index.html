@@ -1,164 +1,37 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Vibhav Kushawaha — Student Developer</title>
-<meta name="description" content="Portfolio of Vibhav Kushawaha, a student developer working on web, Android internals and custom ROMs, Linux, and local LLMs on a phone.">
-<meta name="theme-color" content="#0e0f11">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230e0f11'/%3E%3Ccircle cx='16' cy='16' r='6' fill='none' stroke='%23c8ff3d' stroke-width='2'/%3E%3C/svg%3E">
-<script>document.documentElement.classList.add('js')</script>
-</head>
-<body>
-<a class="skip" href="#work">Skip to work</a>
-<div id="prog" aria-hidden="true"></div>
-<div class="cursor" aria-hidden="true"><i class="c-ring"></i><i class="c-dot"></i></div>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#242522" />
 
-<div id="intro" aria-hidden="true">
-  <div class="label intro-meta"><span>Vibhav Kushawaha</span><span id="pct">000</span></div>
-  <b>VIBHAV</b>
-</div>
+    <title>OBSIDIAN — Architecture &amp; Interior Design Studio</title>
+    <meta
+      name="description"
+      content="OBSIDIAN is an architecture and interior design studio in Mumbai and Bengaluru. Residential, hospitality and cultural work built from material honesty and daylight."
+    />
+    <meta name="author" content="OBSIDIAN Studio" />
+    <link rel="canonical" href="https://obsidian.design/" />
 
-<header class="top" id="topbar">
-  <a class="logo" href="#top" aria-label="Vibhav, back to top">VIBHAV</a>
-  <nav aria-label="Primary" class="nav">
-    <a href="#work" data-nav="work"><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="1" y="1" width="4" height="4"/><rect x="7" y="1" width="4" height="4"/><rect x="1" y="7" width="4" height="4"/><rect x="7" y="7" width="4" height="4"/></svg>Work</a>
-    <a href="#lab" data-nav="lab"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M4.5 1v4L1.5 10.5h9L7.5 5V1M3.5 1h5"/></svg>Lab</a>
-    <a href="#about" data-nav="about"><svg viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="4" r="2.2"/><path d="M1.5 11c.6-2.6 2.4-3.6 4.5-3.6s3.9 1 4.5 3.6"/></svg>About</a>
-    <a href="#contact" data-nav="contact"><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="1" y="2.5" width="10" height="7" rx="1"/><path d="m1.5 3.5 4.5 3.5 4.5-3.5"/></svg>Contact</a>
-  </nav>
-  <div class="top-actions">
-    <a class="gh" id="nav-gh" href="#contact"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m5.500 4-4 4 4 4M10.500 4l4 4-4 4"/></svg><span>GitHub</span></a>
-    <a class="pill-sm" id="say-hi" href="#contact" data-mag>Say hi</a>
-  </div>
-</header>
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="OBSIDIAN" />
+    <meta property="og:title" content="OBSIDIAN — Architecture &amp; Interior Design Studio" />
+    <meta
+      property="og:description"
+      content="Material-honest architecture and interiors for residential, hospitality and cultural commissions. Mumbai &amp; Bengaluru."
+    />
+    <meta property="og:image" content="/images/hero-atrium-2000.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
 
-<main id="top">
-  <!-- 1. HERO -->
-  <section class="hero" aria-labelledby="hero-h">
-    <div class="hero-copy">
-      <p class="label hero-eyebrow">Student developer / Web · Android · Linux · Local LLMs</p>
-      <h1 id="hero-h" data-split>I build things that run on the web, and on your phone.</h1>
-      <p class="hero-sub" id="hero-sub"></p>
-      <div class="cta">
-        <button type="button" class="pill-mono" id="copy-email" data-mag><span class="pm-dot" aria-hidden="true"></span><span id="copy-label">Copy email</span></button>
-        <a class="ghost-btn" href="#work" data-mag>See the work <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v11M3 8.500l5 5 5-5"/></svg></a>
-      </div>
-    </div>
-    <div class="core" id="core" aria-hidden="true"></div>
-    <p class="label hero-foot" aria-hidden="true">Scroll — the phone opens</p>
-  </section>
-
-  <!-- 2 + 3. THE PHONE / BLUEPRINT (one pinned scene) -->
-  <section class="stage" id="phone" aria-labelledby="phone-h">
-    <div class="pin">
-      <div class="paper" aria-hidden="true"></div>
-      <div class="scene" role="img" aria-label="Interactive 3D smartphone that opens as you scroll, revealing its internal parts" aria-describedby="phone-desc">
-        <canvas id="phone-canvas"></canvas>
-      </div>
-      <p class="sr" id="phone-desc">A procedurally built 3D smartphone. As you scroll, the back panel unlatches, slides down and swings open on a side hinge. The battery lifts out and slides away, then the motherboard separates with its chips and camera module layers. The background then turns to blueprint paper and the phone becomes line art, with labels pointing at parts: SoC for Linux and systems, camera for computer vision, battery for optimization, board for Android internals and custom ROMs, display for web and frontend, antenna for networking, and memory for local LLMs.</p>
-
-      <div class="phone-intro">
-        <p class="label">02 / The phone</p>
-        <h2 id="phone-h">Open it up.</h2>
-        <p>Scroll to take the back off.</p>
-      </div>
-
-      <div class="bp-head">
-        <p class="label">03 / Blueprint</p>
-        <h2 id="bp-h">What's inside</h2>
-        <p id="bp-copy"></p>
-      </div>
-
-      <svg class="lines" aria-hidden="true" focusable="false"></svg>
-      <ul class="tags tags-left" aria-label="Skills"></ul>
-      <ul class="tags tags-right" aria-label="More skills"></ul>
-
-      <p class="step label" aria-hidden="true"></p>
-
-      <div class="scrub" id="scrub" role="slider" tabindex="0" aria-label="Scene progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-        <div class="ticks"></div>
-        <i class="ph" aria-hidden="true"></i>
-      </div>
-    </div>
-  </section>
-
-  <!-- 4. WORK -->
-  <section class="wk" id="work" aria-labelledby="wk-h">
-    <h2 id="wk-h" class="wk-h"><span class="l1">Selected</span><span class="l2 outline">Work</span></h2>
-    <div class="grid" id="projects"></div>
-  </section>
-
-  <!-- 5. LAB -->
-  <section class="lab" id="lab" aria-labelledby="lab-h">
-    <div class="lab-head">
-      <p class="label">05 / Lab</p>
-      <h2 id="lab-h" data-split>Things to poke at.</h2>
-    </div>
-    <div class="lab-grid">
-      <div class="lab-card">
-        <p class="label">Drag it, let go</p>
-        <div class="pad" id="lab-pad">
-          <div class="chip-drag" id="lab-chip" tabindex="0" aria-label="Draggable element with spring release">drag<br>me</div>
-        </div>
-      </div>
-      <div class="lab-card">
-        <p class="label">Click the grid</p>
-        <div class="dots" id="lab-dots" role="img" aria-label="Grid of dots that ripple outward from where you click"></div>
-      </div>
-    </div>
-    <div class="term" id="term" aria-label="Fake boot terminal">
-      <p class="label">tty0</p>
-      <pre id="term-out" aria-live="off"></pre>
-    </div>
-  </section>
-
-  <!-- 6. ABOUT -->
-  <section class="ab" id="about" aria-labelledby="ab-h">
-    <h2 id="ab-h" data-split>Not just<br>another developer.</h2>
-    <dl class="meta facts" id="facts"></dl>
-    <div class="t" id="bio"></div>
-    <div class="big">Curious by default.<br><span>Building by instinct.</span></div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="ct" id="contact" aria-labelledby="ct-h">
-    <h2 id="ct-h" data-split>Let's build<br>something.</h2>
-    <div class="links">
-      <a class="btn big-btn" id="mail" href="#contact" data-mag>Email me</a>
-      <a class="btn" id="gh" href="#contact" data-mag>GitHub</a>
-      <a class="btn" id="soc" href="#contact" data-mag>Instagram</a>
-    </div>
-    <footer class="meta foot">
-      <span>Vibhav Kushawaha<br>Student developer</span>
-      <span id="yr"></span>
-      <button type="button" id="up">Back to top</button>
-    </footer>
-  </section>
-</main>
-
-<!-- Project detail overlay -->
-<div class="detail" id="detail" role="dialog" aria-modal="true" aria-labelledby="d-title" hidden>
-  <div class="d-panel"></div>
-  <div class="d-body">
-    <button type="button" class="d-close" id="d-close" aria-label="Close project">Close <span aria-hidden="true">✕</span></button>
-    <p class="d-num" id="d-num" aria-hidden="true"></p>
-    <div class="d-main">
-      <div class="d-copy">
-        <p class="label" id="d-cat"></p>
-        <h2 id="d-title"></h2>
-        <p class="d-desc" id="d-desc"></p>
-        <ul class="d-points" id="d-points"></ul>
-        <ul class="d-tags" id="d-tags"></ul>
-        <div class="d-actions"><a class="btn" id="d-link" href="#">Link coming soon</a><button type="button" class="btn" id="d-next">Next project →</button></div>
-      </div>
-      <div class="d-vis"><canvas id="d-canvas" aria-hidden="true"></canvas></div>
-    </div>
-  </div>
-</div>
-
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
-
-<script type="module" src="/src/main.js"></script>
-</body>
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/dm-sans-latin-normal-300.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/cormorant-garamond-latin-normal-400.woff2" crossorigin />
+    <link rel="stylesheet" href="/fonts/fonts.css" />
+    <link rel="preload" as="image" href="/images/hero-atrium-1440.webp" fetchpriority="high" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
